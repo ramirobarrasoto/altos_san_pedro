@@ -1,6 +1,10 @@
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body, html { font-family: 'Open Sans', sans-serif; scroll-behavior: smooth; }
+body, html { 
+  font-family: 'Open Sans', sans-serif; 
+  scroll-behavior: smooth; 
+  background-color: #F7F3ED;
+}
 
 .video-container {
   position: relative;
