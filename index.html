@@ -2,237 +2,114 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Hotel Altos San Pedro</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Swiper CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-  <link rel="stylesheet" href="style.css">
+  <title>Hotel Altos San Pedro</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-<div class="video-container">
-  <video autoplay muted loop playsinline>
-    <source src="videos/output.webm" type="video/webm">
-    <source src="videos/coverr-outdoor-pool-near-a-villa-9145-1080p.mp4" type="video/mp4">
-    Tu navegador no soporta video HTML5.
-  </video>
-  <div class="hero-content">
-    <h1>Hotel Altos San Pedro</h1>
-    <p>Un refugio boutique entre la calma y la naturaleza</p>
-    <div class="buttons">
-      <a href="https://www.instagram.com/estanciaaltosanpedro" target="_blank">Instagram</a>
-      <a href="https://wa.me/5493548599547" target="_blank">WhatsApp</a>
+  <!-- HERO CON VIDEO -->
+  <div class="hero-video">
+    <video autoplay muted loop playsinline>
+      <source src="videos/output.webm" type="video/webm">
+      <source src="videos/coverr-outdoor-pool-near-a-villa-9145-1080p.mp4" type="video/mp4">
+      Tu navegador no soporta video HTML5.
+    </video>
+    <div class="hero-content">
+      <h1>Hotel Altos San Pedro</h1>
+      <p>Un refugio boutique entre la calma y la naturaleza</p>
+      <div class="hero-buttons">
+        <a href="https://www.instagram.com/estanciaaltosanpedro" target="_blank">Instagram</a>
+        <a href="https://wa.me/5493548599547" target="_blank">WhatsApp</a>
+      </div>
     </div>
   </div>
-</div>
 
-<section>
-  <h2>Sobre Nosotros</h2>
-  <p style="text-align: center;">
-    Reconectá con lo que te hace bien en Estancia Alto San Pedro.  
-    Ubicada en los pies de las sierras de Córdoba, en Villa Giardino,  
-    es el lugar ideal para relajarse, disfrutar de la tranquilidad y reconectar con la naturaleza.  
-    Contamos con más de 1100 hectáreas de bosque virgen atravesado por un arroyo de vertiente  
-    y decenas de senderos para caminatas guiadas hacia antiguas ruinas, perfectas para los amantes del trekking y la aventura.
-  </p>
-</section>
-<section>
-  <h2>Historia y Tradición</h2>
-  <p style="text-align: center;">
-    Establecida en 1890, la Estancia Alto San Pedro es parte fundamental de la historia de Villa Giardino,  
-    siendo aquí donde se fundó el pueblo en 1937.  
-    Actualmente podés hospedarte en el antiguo hotel, con arquitectura tradicional del siglo XX,  
-    que conserva su encanto original pero ofrece amenities modernos como frigobar y pava eléctrica,  
-    además de las mejores vistas a las sierras.
-  </p>
-</section>
-<section>
-  <h2>Opciones de Alojamiento</h2>
-  <ul>
-    <li><strong>SUITES DOBLES / CUÁDRUPLES:</strong> Habitaciones modernas con cama queen o camas individuales, WiFi, TV, Aire acondicionado, Calefacción central, Frigobar, Pava eléctrica y Caja fuerte.</li>
-    <li><strong>GRAND SUITE:</strong> Departamento con dos habitaciones, dos baños completos, living privado con sofás cama y microondas.</li>
-    <li><strong>THE HOUSE:</strong> Casa completa equipada con 4 habitaciones, 4 baños, cocina completa, comedor, quincho, living privado, heladera y freezer.</li>
-    <li><strong>SUPERIORES:</strong> Habitaciones dobles en el casco histórico con cama matrimonial y balcón con vistas a las sierras.</li>
-    <li><strong>EL CHALECITO:</strong> Cabaña para dos personas con terraza privada y vistas panorámicas, para máxima privacidad.</li>
-  </ul>
-</section>
+  <!-- SECCIONES DE TEXTO -->
+  <section class="intro">
+    <h2>Sobre Nosotros</h2>
+    <p>
+      Reconectá con lo que te hace bien en Estancia Alto San Pedro.
+      Ubicada en los pies de las sierras de Córdoba, en Villa Giardino,
+      es el lugar ideal para relajarse, disfrutar de la tranquilidad y reconectar con la naturaleza.
+    </p>
+  </section>
 
-<!-- ===== Galería destacada ===== -->
-<section class="gallery-section" id="gallery">
-  <div class="gallery-media">
-    <div class="gallery-slider">
-      <!-- Aquí van tus sliders Swiper con imágenes -->
-      <div class="swiper slider fade show" id="zimmer">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide">
-            <picture class="foto-recortada">
-              <source srcset="images/room2.webp" type="image/webp" />
-              <img src="images/room2.jpg" alt="Habitación 1" loading="lazy" />
-            </picture>
-          </div>
-          <div class="swiper-slide">
-            <picture>
-              <source srcset="images/room2.webp" type="image/webp" />
-              <img src="images/room2.jpg" alt="Habitación 2" loading="lazy" />
-            </picture>
-          </div>
-          <div class="swiper-slide">
-            <picture>
-              <source srcset="images/room2.webp" type="image/webp" />
-              <img src="images/room2.jpg" alt="Habitación 3" loading="lazy" />
-            </picture>
-          </div>
-        </div>
-        <div class="swiper-pagination"></div>
-      </div>
+  <!-- SHOWCASE GALERÍA -->
+  <div class="room-showcase">
+    <!-- Imagen -->
+    <div class="image-container">
+      <img src="images/room2.jpg" alt="Habitación doble" class="room-image active" data-room="zimmer">
+      <img src="images/bell.jpg" alt="Suite" class="room-image" data-room="suiten" style="display:none;">
+      <img src="images/Lobby2.jpg" alt="Naturaleza" class="room-image" data-room="alster" style="display:none;">
+      <img src="images/style.jpg" alt="Experiencias" class="room-image" data-room="fontenay" style="display:none;">
 
-      <!-- Suites -->
-      <div class="swiper slider fade" id="suiten">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide">
-            <picture>
-              <source srcset="images/bell.webp" type="image/webp" />
-              <img src="images/bell.jpg" alt="Suite 1" loading="lazy" />
-            </picture>
-          </div>
-          <div class="swiper-slide">
-            <picture>
-              <source srcset="images/bell.webp" type="image/webp" />
-              <img src="images/bell.jpg" alt="Suite 2" loading="lazy" />
-            </picture>
-          </div>
-          <div class="swiper-slide">
-            <picture>
-              <source srcset="images/bell.webp" type="image/webp" />
-              <img src="images/bell.jpg" alt="Suite 3" loading="lazy" />
-            </picture>
-          </div>
-        </div>
-        <div class="swiper-pagination"></div>
-      </div>
-
-      <!-- Naturaleza -->
-      <div class="swiper slider fade" id="alster">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide">
-            <picture>
-              <source srcset="images/Lobby2.webp" type="image/webp" />
-              <img src="images/Lobby2.jpg" alt="Paisaje 1" loading="lazy" />
-            </picture>
-          </div>
-          <div class="swiper-slide">
-            <picture>
-              <source srcset="images/Lobby2.webp" type="image/webp" />
-              <img src="images/Lobby2.jpg" alt="Paisaje 2" loading="lazy" />
-            </picture>
-          </div>
-          <div class="swiper-slide">
-            <picture>
-              <source srcset="images/Lobby2.webp" type="image/webp" />
-              <img src="images/Lobby2.jpg" alt="Paisaje 3" loading="lazy" />
-            </picture>
-          </div>
-        </div>
-        <div class="swiper-pagination"></div>
-      </div>
-
-      <!-- Experiencias -->
-      <div class="swiper slider fade" id="fontenay">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide">
-            <picture>
-              <source srcset="images/style.webp" type="image/webp" />
-              <img src="images/style.jpg" alt="Experiencia 1" loading="lazy" />
-            </picture>
-          </div>
-          <div class="swiper-slide">
-            <picture>
-              <source srcset="images/style.webp" type="image/webp" />
-              <img src="images/style.jpg" alt="Experiencia 2" loading="lazy" />
-            </picture>
-          </div>
-          <div class="swiper-slide">
-            <picture>
-              <source srcset="images/style.webp" type="image/webp" />
-              <img src="images/style.jpg" alt="Experiencia 3" loading="lazy" />
-            </picture>
-          </div>
-        </div>
-        <div class="swiper-pagination"></div>
+      <!-- Dots -->
+      <div class="carousel-dots">
+        <div class="dot active" data-room="zimmer"></div>
+        <div class="dot" data-room="suiten"></div>
+        <div class="dot" data-room="alster"></div>
+        <div class="dot" data-room="fontenay"></div>
       </div>
     </div>
 
-   
+    <!-- Contenido -->
+    <div class="content-container">
+      <div class="room-content active" data-room="zimmer">
+        <h2 class="room-title">Un descanso perfecto</h2>
+        <p class="room-description">
+          Habitaciones dobles con diseño contemporáneo, vistas a las sierras y comodidades modernas como WiFi y minibar.
+        </p>
+      </div>
+
+      <div class="room-content" data-room="suiten">
+        <h2 class="room-title">Suites con estilo</h2>
+        <p class="room-description">
+          Amplias suites con dos balcones panorámicos y un living independiente para relajarte después de un día de exploración.
+        </p>
+      </div>
+
+      <div class="room-content" data-room="alster">
+        <h2 class="room-title">Naturaleza viva</h2>
+        <p class="room-description">
+          1100 hectáreas de bosque virgen, senderos guiados y un arroyo de vertiente para reconectar con lo esencial.
+        </p>
+      </div>
+
+      <div class="room-content" data-room="fontenay">
+        <h2 class="room-title">Experiencias únicas</h2>
+        <p class="room-description">
+          Cabalgatas al amanecer, catas de vino regional y cenas a la luz de las velas en Casa de Campo.
+        </p>
+      </div>
+    </div>
+
+    <!-- Tabs -->
+    <div class="tab-navigation">
+      <button class="tab-button active" data-room="zimmer">Habitaciones</button>
+      <button class="tab-button" data-room="suiten">Suites</button>
+      <button class="tab-button" data-room="alster">Naturaleza</button>
+      <button class="tab-button" data-room="fontenay">Experiencias</button>
+    </div>
   </div>
-  <!-- Texto sincronizado -->
-  <div class="info-wrapper">
-    <article class="info show" data-id="zimmer">
-      <h3>Un descanso perfecto</h3>
-      <p>Nuestras <strong>habitaciones dobles</strong> combinan diseño contemporáneo y vistas a las sierras. Disfruta de wifi de alta velocidad, minibar y balcón privado.</p>
-    </article>
 
-    <article class="info" data-id="suiten">
-      <h3>Suites con estilo</h3>
-      <p>Amplios ambientes, dos balcones panorámicos y un living independiente para relajarte después de un día de exploración.</p>
-    </article>
+  <!-- MAPA -->
+  <section class="mapa">
+    <h2>Ubicación</h2>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3418.298905932194!2d-64.4684072!3d-31.0457774!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x942d849dbcdad1b9%3A0x3e1dfa953f02f8c8!2sEstancia%20Alto%20San%20Pedro%20-%20Hotel%20de%20Monta%C3%B1a!5e0!3m2!1ses-419!2sau!4v1750803809410!5m2!1ses-419!2sau"
+      width="600"
+      height="450"
+      style="border:0;"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </section>
 
-    <article class="info" data-id="alster">
-      <h3>Naturaleza viva</h3>
-      <p>1100 ha de bosque virgen, senderos guiados y un arroyo de vertiente para reconectar con lo esencial.</p>
-      <a href="#contacto" class="cta">Senderos y trekking</a>
-    </article>
+  <footer>
+    <p>© 2025 Hotel Altos San Pedro | Inspirado en Casa Angelina</p>
+  </footer>
 
-    <article class="info" data-id="fontenay">
-      <h3>Experiencias únicas</h3>
-      <p>Cabalgatas al amanecer, catas de vino regional y cenas a la luz de las velas en Casa de Campo.</p>
-      <a href="#contacto" class="cta">Vivir la experiencia</a>
-    </article>
-  </div>
-</section>
-
-<section>
-  <h2>Servicios Destacados</h2>
-  <ul>
-    <li>Desayuno buffet y cena de 3 pasos incluidos</li>
-    <li>Restaurante Casa de Campo en el predio</li>
-    <li>Piscina con solarium</li>
-    <li>Wi-Fi de alta velocidad en todas las habitaciones</li>
-    <li>Estacionamiento privado</li>
-    <li>Senderos y caminatas guiadas por la estancia</li>
-    <li>Espacios para eventos y reuniones</li>
-  </ul>
-</section>
-<section>
-  <h2>Gastronomía</h2>
-  <p style="text-align: center;">
-    En Estancia Alto San Pedro sabemos que la comida importa.  
-    Por eso, contamos con <strong>Casa de Campo</strong>, uno de los mejores restaurantes de la zona.  
-    Nuestra carta abraza todos los paladares, desde cocina gourmet internacional hasta hamburguesas caseras o postres.  
-    Aquí, a metros de las habitaciones, se sirve el desayuno buffet y la cena de 3 pasos incluida en cada estadía.  
-    Para conocer más, seguinos en <a href="https://www.instagram.com/casadecampo.restaurante" target="_blank">@casadecampo.restaurante</a>.
-  </p>
-</section>
-<section>
-  <h2>Ubicación</h2>
-  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3418.298905932194!2d-64.4684072!3d-31.0457774!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x942d849dbcdad1b9%3A0x3e1dfa953f02f8c8!2sEstancia%20Alto%20San%20Pedro%20-%20Hotel%20de%20Monta%C3%B1a!5e0!3m2!1ses-419!2sau!4v1750803809410!5m2!1ses-419!2sau" 
-  width="600" 
-  height="450" 
-  style="border:0;" 
-  allowfullscreen="" 
-  loading="lazy" 
-  referrerpolicy="no-referrer-when-downgrade">
-</iframe>
-</section>
-
-<footer>
-  <p>© 2025 Hotel Altos San Pedro | Página diseñada con inspiración en Casa Angelina</p>
-</footer>
-
-<script src="script.js"></script>
-<!-- Swiper JS -->
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-<!-- Inicialización de carruseles -->
-<script src="swiper-init.js"></script>
-
+  <script src="js/main.js"></script>
 </body>
 </html>
