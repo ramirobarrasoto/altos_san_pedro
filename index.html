@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <title>Hotel Altos San Pedro</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -55,34 +57,139 @@
   </ul>
 </section>
 
-<section>
-  <h2>Galería</h2>
-  <div class="carousel-wrapper">
-    <button class="carousel-btn" id="prevBtn">&#8592;</button>
-    <div class="carousel" id="carousel">
-      <picture>
-        <source srcset="images/room2.webp" type="image/webp">
-        <img src="images/room2.jpg" alt="Habitación 1" loading="lazy">
-      </picture>
-      <picture>
-        <source srcset="images/bell.webp" type="image/webp">
-        <img src="images/bell.jpg" alt="Lobby" loading="lazy">
-      </picture>
-      <picture>
-        <source srcset="images/style.webp" type="image/webp">
-        <img src="images/style.jpg" alt="Style" loading="lazy">
-      </picture>
-      <picture>
-        <source srcset="images/lobby2.webp" type="image/webp">
-        <img src="images/lobby2.jpg" alt="Lobby 2" loading="lazy">
-      </picture>
+<!-- ===== Galería destacada ===== -->
+<section class="gallery-section" id="gallery">
+  <div class="gallery-media">
+    <div class="gallery-slider">
+      <!-- Aquí van tus sliders Swiper con imágenes -->
+      <div class="swiper slider fade show" id="zimmer">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <picture class="foto-recortada">
+              <source srcset="images/room2.webp" type="image/webp" />
+              <img src="images/room2.jpg" alt="Habitación 1" loading="lazy" />
+            </picture>
+          </div>
+          <div class="swiper-slide">
+            <picture>
+              <source srcset="images/room2.webp" type="image/webp" />
+              <img src="images/room2.jpg" alt="Habitación 2" loading="lazy" />
+            </picture>
+          </div>
+          <div class="swiper-slide">
+            <picture>
+              <source srcset="images/room2.webp" type="image/webp" />
+              <img src="images/room2.jpg" alt="Habitación 3" loading="lazy" />
+            </picture>
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+
+      <!-- Suites -->
+      <div class="swiper slider fade" id="suiten">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <picture>
+              <source srcset="images/bell.webp" type="image/webp" />
+              <img src="images/bell.jpg" alt="Suite 1" loading="lazy" />
+            </picture>
+          </div>
+          <div class="swiper-slide">
+            <picture>
+              <source srcset="images/bell.webp" type="image/webp" />
+              <img src="images/bell.jpg" alt="Suite 2" loading="lazy" />
+            </picture>
+          </div>
+          <div class="swiper-slide">
+            <picture>
+              <source srcset="images/bell.webp" type="image/webp" />
+              <img src="images/bell.jpg" alt="Suite 3" loading="lazy" />
+            </picture>
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+
+      <!-- Naturaleza -->
+      <div class="swiper slider fade" id="alster">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <picture>
+              <source srcset="images/Lobby2.webp" type="image/webp" />
+              <img src="images/Lobby2.jpg" alt="Paisaje 1" loading="lazy" />
+            </picture>
+          </div>
+          <div class="swiper-slide">
+            <picture>
+              <source srcset="images/Lobby2.webp" type="image/webp" />
+              <img src="images/Lobby2.jpg" alt="Paisaje 2" loading="lazy" />
+            </picture>
+          </div>
+          <div class="swiper-slide">
+            <picture>
+              <source srcset="images/Lobby2.webp" type="image/webp" />
+              <img src="images/Lobby2.jpg" alt="Paisaje 3" loading="lazy" />
+            </picture>
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+
+      <!-- Experiencias -->
+      <div class="swiper slider fade" id="fontenay">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <picture>
+              <source srcset="images/style.webp" type="image/webp" />
+              <img src="images/style.jpg" alt="Experiencia 1" loading="lazy" />
+            </picture>
+          </div>
+          <div class="swiper-slide">
+            <picture>
+              <source srcset="images/style.webp" type="image/webp" />
+              <img src="images/style.jpg" alt="Experiencia 2" loading="lazy" />
+            </picture>
+          </div>
+          <div class="swiper-slide">
+            <picture>
+              <source srcset="images/style.webp" type="image/webp" />
+              <img src="images/style.jpg" alt="Experiencia 3" loading="lazy" />
+            </picture>
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
     </div>
-    <button class="carousel-btn" id="nextBtn">&#8594;</button>
+
+   
   </div>
-  <div class="lightbox" id="lightbox">
-    <img src="" alt="Imagen ampliada" id="lightbox-img"/>
+  <!-- Texto sincronizado -->
+  <div class="info-wrapper">
+    <article class="info show" data-id="zimmer">
+      <h3>Un descanso perfecto</h3>
+      <p>Nuestras <strong>habitaciones dobles</strong> combinan diseño contemporáneo y vistas a las sierras. Disfruta de wifi de alta velocidad, minibar y balcón privado.</p>
+    </article>
+
+    <article class="info" data-id="suiten">
+      <h3>Suites con estilo</h3>
+      <p>Amplios ambientes, dos balcones panorámicos y un living independiente para relajarte después de un día de exploración.</p>
+    </article>
+
+    <article class="info" data-id="alster">
+      <h3>Naturaleza viva</h3>
+      <p>1100 ha de bosque virgen, senderos guiados y un arroyo de vertiente para reconectar con lo esencial.</p>
+      <a href="#contacto" class="cta">Senderos y trekking</a>
+    </article>
+
+    <article class="info" data-id="fontenay">
+      <h3>Experiencias únicas</h3>
+      <p>Cabalgatas al amanecer, catas de vino regional y cenas a la luz de las velas en Casa de Campo.</p>
+      <a href="#contacto" class="cta">Vivir la experiencia</a>
+    </article>
   </div>
 </section>
+
 <section>
   <h2>Servicios Destacados</h2>
   <ul>
@@ -122,6 +229,10 @@
 </footer>
 
 <script src="script.js"></script>
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<!-- Inicialización de carruseles -->
+<script src="swiper-init.js"></script>
 
 </body>
 </html>

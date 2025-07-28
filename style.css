@@ -206,6 +206,22 @@ footer {
   border-radius: 0;
 }
 
+.swiper-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+/* Responsive para móviles */
+@media (max-width: 700px) {
+  .slider,
+  .swiper {
+    max-height: 35vh;
+    min-height: 120px;
+  }
+}
+
 /* Responsive: el video sigue ocupando toda la pantalla */
 @media (max-width: 900px) {
   .video-container {
@@ -246,3 +262,401 @@ footer {
     font-size: 1.3rem;
   }
 }
+
+/***** Galería con pestañas *****/
+.gallery-section {
+  background: var(--primary-bg, #f7f3ed);
+  padding: 3em 1em;
+  border-radius: 24px;
+  max-width: 1100px;
+  margin: 4em auto;
+}
+
+.tabs {
+  display: flex;
+  gap: 0.8em;
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+  flex-direction: column;
+  z-index: 10;
+}
+
+.tab {
+  padding: 0.6em 1.6em;
+  border: 2px solid #b8b1a8;
+  border-radius: 50px;
+  background: transparent;
+  color: #2a5d3c;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.tab.active,
+.tab:hover {
+  background: #d5cec6;
+}
+
+.sliders {
+  position: relative;
+  color: #fff;
+  border-color: rgba(42, 93, 60, 0.9);
+  transform: translateX(-5px);
+}
+
+.slider {
+  aspect-ratio: 3/2;      /*  (≈ 1.5)  */
+  width: 100%;
+  display: none;
+}
+
+.slider.show {
+  display: block;
+}
+
+.slider,
+.swiper {
+  aspect-ratio: 3/2;
+  width: 100%;
+  max-height: 50vh; /* Ocupa hasta la mitad de la pantalla */
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.swiper,
+.slider{
+  width:100%;     
+  max-height:500px;
+  min-height:250px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+
+/* dentro de la tarjeta destacada */
+.gallery-card .slider{
+  aspect-ratio:3/2;      /* mantiene 1.5:1 */
+  width:100%;
+  height:auto;           /* que el alto lo calcule el aspect-ratio */
+  max-height:50vh;      /* tope razonable en desktop */
+}
+
+.swiper-pagination-bullet {
+  background: #b8b1a8;
+  opacity: 0.6;
+}
+
+.swiper-pagination-bullet-active {
+  background: #2a5d3c;
+  opacity: 1;
+}
+
+/* ----- Layout tarjeta galería ----- */
+.gallery-card{
+  display:flex;
+  gap:3%;
+  background:var(--beige,#f7f3ed);
+  border-radius:28px;
+  padding:2.5rem 2rem;
+  flex-wrap:wrap;
+  position:relative;          /* imprescindible para el posicionamiento abs. interno */
+  padding:2.5rem 2rem; 
+}
+
+/* slider a la izquierda */
+.media{
+  flex:1 1 60%;
+  position:relative;
+  overflow:hidden;                 
+  border-radius:24px;
+  /*clip-path: polygon(
+      0 0,
+      100% 0,
+      100% 80%,
+      33.333% 80%,
+      33.333% 100%,
+      0 100%
+  );
+  */
+  /* Safari / iOS */
+  /*-webkit-clip-path: polygon(
+      0 0,100% 0,100% 80%,33.333% 80%,33.333% 100%,0 100%);
+      */
+}
+.media::after{
+    content:'';
+    position:absolute;
+    left:0;               /* esquina inferior-izquierda */
+    bottom:0;
+    /* 2/3 del ancho  ×  1/5 de la altura aprox. */
+    width:66.66%;
+    height:20%;
+    background:var(--beige,#f7f3ed);   /* mismo beige de fondo */
+    border-top-right-radius:100% 100%; /* súper-elipse → curva suave */
+    z-index:2;                          /* por encima de la imagen */
+    pointer-events:none;                /* no interfiere al hacer clic */
+}
+
+.slider{aspect-ratio:3/2;width:100%;display:none}
+.slider.show{display:block}
+
+/* bloque de texto a la derecha */
+.info-wrapper{
+  flex:1 1 37%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;   /* <-- alinea el contenido a la derecha */
+  text-align: right;       /* <-- texto alineado a la derecha */
+}
+
+.info {
+  display: none;
+  color: #6c604f;
+  text-align: right;       /* <-- texto alineado a la derecha */
+}
+
+.info.show {
+  display: block;
+}
+
+.info h3{color:var(--green,#2a5d3c);font-size:1.8rem;margin-bottom:.8rem}
+.info p{margin-bottom:1.2rem;line-height:1.5}
+.cta{display:inline-block;padding:.6rem 1.6rem;background:#d5cec6;border-radius:40px;
+  color:var(--green,#2a5d3c);text-decoration:none;font-weight:600}
+
+/* responsive: stack */
+@media(min-width:700px){
+  .media::after{
+    content:'';
+    position:absolute;
+    left:0; bottom:0;
+    width:180px; height:180px;     /* tamaño del recorte */
+    background:var(--beige,#f7f3ed);
+    border-top-right-radius:180px; /* dibuja el arco */
+  }
+  /* agrandamos el recorte de la esquina */
+  .media{
+    border-bottom-left-radius:0;
+  }
+}
+/* las pestañas pegadas a la foto */
+.media .tabs{
+  position:absolute;
+  bottom:-1.3rem;                  /* sobresale un poco */
+  left:50%;
+  transform:translateX(-50%);
+  z-index:2;
+}
+
+.media .tab{
+  padding:.45rem 1.4rem;
+  background:rgba(255,255,255,.85);
+}
+
+/* quitamos CTA (si olvidas borrar el enlace) */
+.cta{display:none}
+
+/* opcional | texto un poco más grande */
+.info h3{
+  font-size:2rem;
+}
+
+/* tabs SOLO para bloques clásicos que estén directamente en la sección,
+   no para las que van dentro de .media */
+.gallery-section > .tabs{
+  display:flex;
+  gap:.5em;
+  justify-content:center;
+  flex-wrap:wrap;
+  margin-bottom:2em;
+}
+
+.media .swiper-slide img{
+  border-radius:0 !important;
+}
+
+/* Posiciona los bullets a la izquierda dentro de la foto */
+.media .swiper-pagination{
+    /* 1️⃣  Lo pegamos al borde inferior-izquierdo */
+    left: 1.5rem !important;   /* o la distancia que prefieras */
+    bottom: 1.5rem;            /* conserva la altura actual */
+    right: auto !important;    /* anula el centrado por “stretch” */
+    
+    /* 2️⃣  Solo ocupa lo necesario para las bolitas */
+    width: auto !important;
+    max-width: none;
+    
+    /* 3️⃣  Mantiene las bolitas alineadas a la izquierda */
+    text-align: left !important;
+    
+    /* 4️⃣  (opcional) elimina cualquier transform heradado */
+    transform: none !important;
+}
+
+/* separación entre bullets */
+.media .swiper-pagination-bullet{
+    margin: 0 4px;
+}
+
+.slider img,
+.swiper-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 12px;
+  display: block;
+}
+
+/* Contenedor principal con esquinas curvas */
+.gallery-card.gallery-curved {
+  position: relative;
+  background: #fff;
+  border-radius: 32px 32px 48px 48px;
+  overflow: visible;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.07);
+  padding-bottom: 4.5em; /* espacio para las pestañas */
+  margin: 2em auto;
+  max-width: 1100px;
+}
+
+/* Slider con esquinas curvas */
+.gallery-curved .sliders {
+  border-radius: 32px 32px 48px 48px;
+  overflow: hidden;
+}
+
+/* Pestañas curvas superpuestas y horizontales */
+.curved-tabs {
+  position: absolute;
+  bottom:0;
+  right:0; 
+  max-width: 66.66%;   /* 2/3 del ancho del contenedor */
+  max-height: 20%;      /* 1/5 del alto del contenedor */
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  gap: 1em;
+  z-index: 10;
+  background:#f7f7f7;
+  box-shadow: none;
+  padding: 1em 1.5em;
+  flex-wrap: wrap;
+  border-top-left-radius: 32px;
+}
+
+/* Botones de pestañas tipo píldora */
+.curved-tabs .tab {
+  padding: 0.5em 1.8em;
+  border: 2px solid #d5cec6;
+  border-radius: 40px;
+  background: #fff;
+  color: #a89f91;
+  font-weight: 700;
+  font-size: 1.3em;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.curved-tabs .tab.active,
+.curved-tabs .tab:hover {
+  background: #f5f1ec;
+  color: #2a5d3c;
+  border-color: #b8b1a8;
+}
+
+/* Elimina cualquier display: flex-direction: column en .tabs o .curved-tabs */
+.tabs, .curved-tabs {
+  flex-direction: row !important;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Ajusta el slider para que tenga base curva */
+.gallery-curved .sliders,
+.media {
+  border-radius: 32px 32px 48px 48px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Ajusta la imagen para que siga la curva */
+.media .swiper-slide img {
+  border-radius: 32px 32px 48px 48px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .gallery-card.gallery-curved {
+    border-radius: 18px 18px 32px 32px;
+    padding-bottom: 3em;
+    max-width: 98vw;
+  }
+  .gallery-curved .sliders,
+  .media{
+    clip-path: none; /* Removemos el clip-path en móvil */
+    border-radius: 24px;
+  }
+  .tabs {
+    position: static;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+  }
+  .media .swiper-slide img {
+    border-radius: 18px 18px 32px 32px;
+  }
+  .curved-tabs {
+    font-size: 0.95em;
+    bottom: 0.2em;
+    gap: 0.3em;
+    padding: 0.1em 0.2em;
+  }
+}
+
+.gallery-media {
+  position: relative;
+}
+
+/* =====  NUEVO ajuste para tabs en una línea  ===== */
+.gallery-media .curved-tabs{
+  /* 1️⃣  Ancho máximo 80 % y centrado */
+  width:80%;
+
+  /* 2️⃣  Una sola línea */
+  flex-wrap:nowrap;
+  justify-content:space-between;  /* reparte huecos */
+  gap:0.6em;                      /* un poco menor */
+}
+
+/* Cada botón se “auto-encoge” sin salirse */
+.gallery-media .curved-tabs .tab{
+  flex:1 1 0;                     /* reparte el espacio disponible */
+  min-width:0;                    /* permite encogerse más allá del padding */
+  text-align:center;
+
+  /* tamaño responsive: se adapta sin romper la línea */
+  padding:0.45em clamp(0.8rem, 2vw, 1.2rem);
+  font-size:clamp(0.8rem,1.1vw,1rem);
+}
+
+
+
+
